@@ -1,8 +1,12 @@
 const path = require('path')
 
+////////
 // __dirname is a global variable from Node that has the current directory name
 // babel-polyfill is needed so async/await can be used on all browsers
 // polyfill means replicating the use of an API in browsers that do not support it
+
+// babel-presets are used to transpile all code so it's features are compatible with other browsers (to ES5 Standard)
+///////
 
 //////// LOADERS
 // Webpack can only deal with plain JS and not JSX
@@ -26,7 +30,7 @@ const config = {
 				test: /\.js$/,
 				loader: 'babel-loader',
 				options: {
-					presets: ['@babel/preset-react'],
+					presets: ['@babel/preset-env', '@babel/preset-react'],
 				},
 			},
 		],
