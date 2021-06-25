@@ -8,7 +8,9 @@ const path = require('path')
 // babel-presets are used to transpile all code so it's features are compatible with other browsers (to ES5 Standard)
 ///////
 
-//////// LOADERS
+///////////// LOADERS
+
+/////// BABEL
 // Webpack can only deal with plain JS and not JSX
 // A "loader" like Babel is needed so JSX gets processed before being bundled by webpack
 // Loaders are defined in the module property and it's rules array
@@ -16,7 +18,10 @@ const path = require('path')
 // 1. Test specifies the loaders is for .js files
 // 2. Loader prop specifies the loader which will be used
 // 3. Options is used to configure the loaders functionality
-////////
+
+////// CSS
+// css-loader is to load the CSS files
+// style-loader is to generate and inject a style element that contains all the styles of the application
 
 const config = {
 	entry: ['@babel/polyfill', './src/index.js'],
@@ -32,6 +37,10 @@ const config = {
 				options: {
 					presets: ['@babel/preset-env', '@babel/preset-react'],
 				},
+			},
+			{
+				test: /\.js$/,
+				use: ['style-loader', 'css-loader'],
 			},
 		],
 	},
