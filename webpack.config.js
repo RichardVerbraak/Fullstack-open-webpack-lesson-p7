@@ -32,6 +32,11 @@ const webpack = require('webpack')
 // This is used in order to create a global constant to be used in the bundled up code
 // Now the backend_url is dynamic depending on what mode its running in (production or dev)
 
+///////// Eject
+// Ejecting in create-react-app will get rid of all the "black magic" and the default config files will be stored in a config directory
+// and a modified package.json
+// It would be better to write your own config file instead of ejecting from CRA
+
 const config = (env, argv) => {
 	console.log('argv', argv.mode)
 
