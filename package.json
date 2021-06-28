@@ -4,7 +4,8 @@
   "description": "Webpack lesson part-7",
   "main": "build.js",
   "scripts": {
-    "build": "webpack --mode=development"
+    "build": "webpack --mode=development",
+    "start": "webpack serve --mode=development"
   },
   "author": "Richard Verbraak",
   "license": "ISC",
