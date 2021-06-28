@@ -23,11 +23,20 @@ const path = require('path')
 // css-loader is to load the CSS files
 // style-loader is to generate and inject a style element that contains all the styles of the application
 
+/////////// devServer
+// The devServer will bundle the files BUT it will only exist in memory and won't be output in a file like main.js
+// The changes will only be reflected on localhost port 3000
+
 const config = {
 	entry: ['@babel/polyfill', './src/index.js'],
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'main.js',
+	},
+	devServer: {
+		contentBase: path.resolve(__dirname, 'build'),
+		compress: true,
+		port: 3000,
 	},
 	module: {
 		rules: [
