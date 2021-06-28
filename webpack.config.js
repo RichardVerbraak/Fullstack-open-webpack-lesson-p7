@@ -48,7 +48,7 @@ const config = {
 				},
 			},
 			{
-				test: /\.js$/,
+				test: /\.css$/,
 				use: ['style-loader', 'css-loader'],
 			},
 		],
