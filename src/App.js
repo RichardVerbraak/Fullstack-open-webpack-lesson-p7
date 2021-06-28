@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './index.css'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // Additional info on the comment below: https://stackoverflow.com/questions/54069253/usestate-set-method-not-reflecting-change-immediately
 
