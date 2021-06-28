@@ -23,8 +23,7 @@ const useNotes = (url) => {
 const App = () => {
 	const [counter, setCounter] = useState(0)
 	const [value, setValue] = useState([])
-	const url = 'https://blooming-atoll-75500.herokuapp.com/api/notes'
-	const notes = useNotes(url)
+	const notes = useNotes(BACKEND_URL)
 
 	// side note: the state values used in this function are based on the current closure
 	// the state will be updated after re-render and the values in this functions closure will not be affected
@@ -45,7 +44,7 @@ const App = () => {
 				press
 			</button>
 			<div>
-				{notes.length} notes on server {url}
+				{notes.length} notes on server {BACKEND_URL}
 			</div>
 		</div>
 	)

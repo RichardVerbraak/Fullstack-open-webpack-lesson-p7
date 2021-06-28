@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 ////////
 // __dirname is a global variable from Node that has the current directory name
@@ -27,7 +28,18 @@ const path = require('path')
 // The devServer will bundle the files BUT it will only exist in memory and won't be output in a file like main.js
 // The changes will only be reflected on localhost port 3000
 
-const config = (env, arg) => {
+////////// DefinePlugin
+// This is used in order to create a global constant to be used in the bundled up code
+// Now the backend_url is dynamic depending on what mode its running in (production or dev)
+
+const config = (env, argv) => {
+	console.log('argv', argv.mode)
+
+	const backend_url =
+		argv.mode === 'production'
+			? 'https://blooming-atoll-75500.herokuapp.com/api/notes'
+			: 'http://localhost:3001/notes'
+
 	return {
 		entry: ['@babel/polyfill', './src/index.js'],
 		output: {
@@ -55,6 +67,11 @@ const config = (env, arg) => {
 				},
 			],
 		},
+		plugins: [
+			new webpack.DefinePlugin({
+				BACKEND_URL: JSON.stringify(backend_url),
+			}),
+		],
 	}
 }
 
