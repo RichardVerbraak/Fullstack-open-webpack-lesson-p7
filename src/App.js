@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import PromisePolyFill from 'promise-polyfill'
+
+// If global Promise object doesn't exist, meaning browser doesn't support promises, the polyfilled promise will be stored in said variable
+if (!window.Promise) {
+	window.Promise = PromisePolyFill
+}
 
 // Additional info on the comment below: https://stackoverflow.com/questions/54069253/usestate-set-method-not-reflecting-change-immediately
 
